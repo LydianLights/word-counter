@@ -36,6 +36,36 @@ _This input-output pair checks that even though one word might start with or con
 
 ---
 
+If the user enters an empty sentence, return zero matches;
+
+| Input Sentence | Input Word | Output |
+| :--- | :--- | :--- |
+|  | cat | 0 |
+
+_This input-output pair checks for an empty sentence._
+
+---
+
+If the user enters an empty word to check, return zero matches;
+
+| Input Sentence | Input Word | Output |
+| :--- | :--- | :--- |
+| cat |  | 0 |
+
+_This input-output pair checks for an empty input word._
+
+---
+
+If the user enters an empty word to check and an empty sentence, return zero matches;
+
+| Input Sentence | Input Word | Output |
+| :--- | :--- | :--- |
+|  |  | 0 |
+
+_This input-output pair checks for both an empty input word and empty sentence._
+
+---
+
 If the user enters a full sentence and a word not appearing in that sentence, it should count zero matches.
 
 | Input Sentence | Input Word | Output |
