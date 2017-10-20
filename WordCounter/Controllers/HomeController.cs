@@ -19,7 +19,7 @@ namespace WordCounter.Controllers
       {
         string inputSentence = Request.Form["input-sentence"];
         string inputWord = Request.Form["input-word"];
-
+        
         IndexModel model = new IndexModel(inputSentence, inputWord);
         return View(model);
       }

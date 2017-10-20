@@ -19,7 +19,14 @@ namespace WordCounter.ViewModels.Home
             InputSentence = inputSentence;
             InputWord = inputWord;
             DisplayMatchResults = true;
-            MatchCount = MatchFinder.CountMatches(inputSentence, inputWord);
+            try
+            {
+                MatchCount = MatchFinder.CountMatches(inputSentence, inputWord);
+            }
+            catch
+            {
+                MatchCount = 0;
+            }
         }
     }
 }

@@ -8,6 +8,10 @@ namespace WordCounter.Models
   {
       public static int CountMatches(string testSentence, string inputWord)
       {
+          if (inputWord.Contains(" "))
+          {
+              throw new ArgumentException("Only single-word searches are allowed.");
+          }
           if (inputWord == "")
           {
               return 0;
