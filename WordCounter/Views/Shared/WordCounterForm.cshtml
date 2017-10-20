@@ -9,7 +9,7 @@
     <div class="col-md-4">
       <div class="form-group">
         <label for="input-word">Enter a word to look for:</label>
-        <input class="form-control" id="input-word" name="input-word" type="text" required>
+        <input class="form-control" id="input-word" name="input-word" type="text" pattern="^\S*$" required oninvalid="this.setCustomValidity('Please enter a single word to search for.')" oninput="setCustomValidity('')">
       </div>
       <button class="btn" type="submit" name="submit-button">Look 👀</button>
     </div>
