@@ -134,5 +134,23 @@ namespace WordCounter.Models.Tests
 
         Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
     }
+    [TestMethod]
+    public void CountMatches_TestHasMatchWithLeadingOrTrailingPunctuation_NumMatches()
+    {
+        string testSentence = "The quick brown \"dog\" jumps over the lazy dog.";
+        string inputWord = "dog";
+        int numExpectedMatches = 2;
+
+        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+    }
+    [TestMethod]
+    public void CountMatches_TestHasMatchWithCapitalizationAndLeadingOrTrailingPunctuation_NumMatches()
+    {
+        string testSentence = "The quick brown \"Dog\" jumps over the lazy dog.";
+        string inputWord = "dog";
+        int numExpectedMatches = 2;
+
+        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+    }
   }
 }
