@@ -12,5 +12,11 @@ namespace WordCounter.Controllers
       {
         return View();
       }
+
+      [HttpPost("/submit")]
+      public ActionResult Submit()
+      {
+          return Redirect("/");
+      }
     }
 }
