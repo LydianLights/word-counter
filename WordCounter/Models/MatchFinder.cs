@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace WordCounter.Models
 {
-  public static class WordCounter
+  public static class MatchFinder
   {
       public static int CountMatches(string testSentence, string inputWord)
       {

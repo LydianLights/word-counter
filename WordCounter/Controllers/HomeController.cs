@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using WordCounter.Models;
+using WordCounter.ViewModels.Home;
 
 namespace WordCounter.Controllers
 {
@@ -10,13 +11,19 @@ namespace WordCounter.Controllers
       [HttpGet("/")]
       public ActionResult Index()
       {
-        return View();
+        IndexModel model = new IndexModel();
+        return View(model);
       }
 
-      [HttpPost("/submit")]
+      [HttpPost("/"), ActionName("Index")]
       public ActionResult Submit()
       {
-          return Redirect("/");
+        string inputSentence = Request.Form["input-sentence"];
+        string inputWord = Request.Form["input-word"];
+        int numMatches = MatchFinder.CountMatches(inputSentence, inputWord);
+
+        IndexModel model = new IndexModel(numMatches);
+        return View(model);
       }
     }
 }

@@ -6,7 +6,7 @@ using WordCounter.Models;
 namespace WordCounter.Models.Tests
 {
   [TestClass]
-  public class WordCounterTest
+  public class MatchFinderTest
   {
     [TestMethod]
     public void CountMatches_TestIsSingleWordAndInputDoesntMatch_NoMatches()
@@ -15,7 +15,7 @@ namespace WordCounter.Models.Tests
         string inputWord = "cat";
         int numExpectedMatches = 0;
 
-        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+        Assert.AreEqual(numExpectedMatches, MatchFinder.CountMatches(testSentence, inputWord));
     }
     [TestMethod]
     public void CountMatches_TestIsSingleWordAndInputDoesMatch_NumMatches()
@@ -24,7 +24,7 @@ namespace WordCounter.Models.Tests
         string inputWord = "cat";
         int numExpectedMatches = 1;
 
-        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+        Assert.AreEqual(numExpectedMatches, MatchFinder.CountMatches(testSentence, inputWord));
     }
     [TestMethod]
     public void CountMatches_InputPartiallyContainedInTest_NumMatches()
@@ -33,7 +33,7 @@ namespace WordCounter.Models.Tests
         string inputWord = "a";
         int numExpectedMatches = 0;
 
-        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+        Assert.AreEqual(numExpectedMatches, MatchFinder.CountMatches(testSentence, inputWord));
     }
     [TestMethod]
     public void CountMatches_TestIsEmpty_NoMatches()
@@ -42,7 +42,7 @@ namespace WordCounter.Models.Tests
         string inputWord = "cat";
         int numExpectedMatches = 0;
 
-        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+        Assert.AreEqual(numExpectedMatches, MatchFinder.CountMatches(testSentence, inputWord));
     }
     [TestMethod]
     public void CountMatches_InputIsEmpty_NoMatches()
@@ -51,7 +51,7 @@ namespace WordCounter.Models.Tests
         string inputWord = "";
         int numExpectedMatches = 0;
 
-        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+        Assert.AreEqual(numExpectedMatches, MatchFinder.CountMatches(testSentence, inputWord));
     }
     [TestMethod]
     public void CountMatches_TestIsEmptyAndInputIsEmpty_NoMatches()
@@ -60,7 +60,7 @@ namespace WordCounter.Models.Tests
         string inputWord = "";
         int numExpectedMatches = 0;
 
-        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+        Assert.AreEqual(numExpectedMatches, MatchFinder.CountMatches(testSentence, inputWord));
     }
     [TestMethod]
     public void CountMatches_InputIsNotInTest_NoMatches()
@@ -69,7 +69,7 @@ namespace WordCounter.Models.Tests
         string inputWord = "cat";
         int numExpectedMatches = 0;
 
-        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+        Assert.AreEqual(numExpectedMatches, MatchFinder.CountMatches(testSentence, inputWord));
     }
     [TestMethod]
     public void CountMatches_InputIsInTest_NumMatches()
@@ -78,7 +78,7 @@ namespace WordCounter.Models.Tests
         string inputWord = "buffalo";
         int numExpectedMatches = 7;
 
-        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+        Assert.AreEqual(numExpectedMatches, MatchFinder.CountMatches(testSentence, inputWord));
     }
     [TestMethod]
     public void CountMatches_InputIsInTestButTestIsCapitalized_NumMatches()
@@ -87,7 +87,7 @@ namespace WordCounter.Models.Tests
         string inputWord = "the";
         int numExpectedMatches = 2;
 
-        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+        Assert.AreEqual(numExpectedMatches, MatchFinder.CountMatches(testSentence, inputWord));
     }
     [TestMethod]
     public void CountMatches_InputIsInTestButTestIsALLCAPS_NumMatches()
@@ -96,7 +96,7 @@ namespace WordCounter.Models.Tests
         string inputWord = "fox";
         int numExpectedMatches = 1;
 
-        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+        Assert.AreEqual(numExpectedMatches, MatchFinder.CountMatches(testSentence, inputWord));
     }
     [TestMethod]
     public void CountMatches_InputIsInTestButTestIsDifferentCasing_NoMatches()
@@ -105,7 +105,7 @@ namespace WordCounter.Models.Tests
         string inputWord = "brown";
         int numExpectedMatches = 0;
 
-        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+        Assert.AreEqual(numExpectedMatches, MatchFinder.CountMatches(testSentence, inputWord));
     }
     [TestMethod]
     public void CountMatches_InputIsInTestButInputIsCapitalized_NumMatches()
@@ -114,7 +114,7 @@ namespace WordCounter.Models.Tests
         string inputWord = "The";
         int numExpectedMatches = 2;
 
-        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+        Assert.AreEqual(numExpectedMatches, MatchFinder.CountMatches(testSentence, inputWord));
     }
     [TestMethod]
     public void CountMatches_InputIsInTestButInputIsALLCAPS_NumMatches()
@@ -123,7 +123,7 @@ namespace WordCounter.Models.Tests
         string inputWord = "FOX";
         int numExpectedMatches = 1;
 
-        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+        Assert.AreEqual(numExpectedMatches, MatchFinder.CountMatches(testSentence, inputWord));
     }
     [TestMethod]
     public void CountMatches_InputIsInTestButInputIsDifferentCasing_NoMatches()
@@ -132,7 +132,7 @@ namespace WordCounter.Models.Tests
         string inputWord = "bRoWn";
         int numExpectedMatches = 0;
 
-        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+        Assert.AreEqual(numExpectedMatches, MatchFinder.CountMatches(testSentence, inputWord));
     }
     [TestMethod]
     public void CountMatches_TestHasMatchWithLeadingOrTrailingPunctuation_NumMatches()
@@ -141,7 +141,7 @@ namespace WordCounter.Models.Tests
         string inputWord = "dog";
         int numExpectedMatches = 2;
 
-        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+        Assert.AreEqual(numExpectedMatches, MatchFinder.CountMatches(testSentence, inputWord));
     }
     [TestMethod]
     public void CountMatches_TestHasMatchWithCapitalizationAndLeadingOrTrailingPunctuation_NumMatches()
@@ -150,7 +150,7 @@ namespace WordCounter.Models.Tests
         string inputWord = "dog";
         int numExpectedMatches = 2;
 
-        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+        Assert.AreEqual(numExpectedMatches, MatchFinder.CountMatches(testSentence, inputWord));
     }
     [TestMethod]
     public void CountMatches_TestHasInternalPunctuationAndInputDoesnt_NumMatches()
@@ -159,7 +159,7 @@ namespace WordCounter.Models.Tests
         string inputWord = "foxs";
         int numExpectedMatches = 0;
 
-        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+        Assert.AreEqual(numExpectedMatches, MatchFinder.CountMatches(testSentence, inputWord));
     }
     [TestMethod]
     public void CountMatches_TestHasInternalPunctuationAndInputPartiallyMatches_NumMatches()
@@ -168,7 +168,7 @@ namespace WordCounter.Models.Tests
         string inputWord = "fox";
         int numExpectedMatches = 0;
 
-        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+        Assert.AreEqual(numExpectedMatches, MatchFinder.CountMatches(testSentence, inputWord));
     }
     [TestMethod]
     public void CountMatches_TestHasInternalPunctuationAndInputMatches_NumMatches()
@@ -177,7 +177,7 @@ namespace WordCounter.Models.Tests
         string inputWord = "fox's";
         int numExpectedMatches = 1;
 
-        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+        Assert.AreEqual(numExpectedMatches, MatchFinder.CountMatches(testSentence, inputWord));
     }
     [TestMethod]
     public void CountMatches_InputHasSurroundingPunctuationButTestDoesnt_NoMatches()
@@ -186,7 +186,7 @@ namespace WordCounter.Models.Tests
         string inputWord = "-fox-";
         int numExpectedMatches = 0;
 
-        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+        Assert.AreEqual(numExpectedMatches, MatchFinder.CountMatches(testSentence, inputWord));
     }
     [TestMethod]
     public void CountMatches_InputAndTestHaveSurroundingPunctuation_NumMatches()
@@ -195,7 +195,7 @@ namespace WordCounter.Models.Tests
         string inputWord = "-fox-";
         int numExpectedMatches = 1;
 
-        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+        Assert.AreEqual(numExpectedMatches, MatchFinder.CountMatches(testSentence, inputWord));
     }
     [TestMethod]
     public void CountMatches_InputAndTestHaveDifferentSurroundingPunctuation_NoMatches()
@@ -204,7 +204,7 @@ namespace WordCounter.Models.Tests
         string inputWord = "-fox-";
         int numExpectedMatches = 0;
 
-        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+        Assert.AreEqual(numExpectedMatches, MatchFinder.CountMatches(testSentence, inputWord));
     }
     [TestMethod]
     public void CountMatches_InputAndTestHaveSurroundingPunctuationAndInputHasCapitalization_NumMatches()
@@ -213,7 +213,7 @@ namespace WordCounter.Models.Tests
         string inputWord = "-Fox-";
         int numExpectedMatches = 1;
 
-        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+        Assert.AreEqual(numExpectedMatches, MatchFinder.CountMatches(testSentence, inputWord));
     }
   }
 }
