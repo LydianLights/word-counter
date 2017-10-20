@@ -179,5 +179,41 @@ namespace WordCounter.Models.Tests
 
         Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
     }
+    [TestMethod]
+    public void CountMatches_InputHasSurroundingPunctuationButTestDoesnt_NoMatches()
+    {
+        string testSentence = "The quick brown fox jumps over the lazy dog.";
+        string inputWord = "-fox-";
+        int numExpectedMatches = 0;
+
+        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+    }
+    [TestMethod]
+    public void CountMatches_InputAndTestHaveSurroundingPunctuation_NumMatches()
+    {
+        string testSentence = "The quick brown -fox- jumps over the lazy dog.";
+        string inputWord = "-fox-";
+        int numExpectedMatches = 1;
+
+        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+    }
+    [TestMethod]
+    public void CountMatches_InputAndTestHaveDifferentSurroundingPunctuation_NoMatches()
+    {
+        string testSentence = "The quick brown ~fox~ jumps over the lazy dog.";
+        string inputWord = "-fox-";
+        int numExpectedMatches = 0;
+
+        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+    }
+    [TestMethod]
+    public void CountMatches_InputAndTestHaveSurroundingPunctuationAndInputHasCapitalization_NumMatches()
+    {
+        string testSentence = "The quick brown -fox- jumps over the lazy dog.";
+        string inputWord = "-Fox-";
+        int numExpectedMatches = 1;
+
+        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+    }
   }
 }

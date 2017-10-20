@@ -16,10 +16,17 @@ namespace WordCounter.Models
           int count = 0;
           foreach (string word in testWords)
           {
-              string parsedWord = RemoveSurroundingPunctuation(word);
-              if (WordsAreSame(parsedWord, inputWord))
+              if (WordsAreSame(word, inputWord))
               {
                   count++;
+              }
+              else
+              {
+                  string parsedWord = RemoveSurroundingPunctuation(word);
+                  if (WordsAreSame(parsedWord, inputWord))
+                  {
+                      count++;
+                  }
               }
           }
           return count;
@@ -27,12 +34,29 @@ namespace WordCounter.Models
 
       private static bool WordsAreSame(string word1, string word2)
       {
+          // Check capitalization of first non-punctuation character of each word
+          // Word 1
+          int word1FirstNonPunctuationIndex = 0;
+          while (!char.IsLetterOrDigit(word1[word1FirstNonPunctuationIndex]))
+          {
+              word1FirstNonPunctuationIndex++;
+          }
           char[] word1Letters = word1.ToCharArray();
-          word1Letters[0] = char.ToLower(word1Letters[0]);
+          word1Letters[word1FirstNonPunctuationIndex] = char.ToLower(word1Letters[word1FirstNonPunctuationIndex]);
+
+          // Word 2
+          int word2FirstNonPunctuationIndex = 0;
+          while (!char.IsLetterOrDigit(word2[word2FirstNonPunctuationIndex]))
+          {
+              word2FirstNonPunctuationIndex++;
+          }
           char[] word2Letters = word2.ToCharArray();
-          word2Letters[0] = char.ToLower(word2Letters[0]);
+          word2Letters[word2FirstNonPunctuationIndex] = char.ToLower(word2Letters[word2FirstNonPunctuationIndex]);
+
 
           bool equalButCapitalized = word1Letters.SequenceEqual(word2Letters);
+
+          // Check if either word is all-caps variation of the other
           bool equalButAllCaps = (word1.ToUpper() == word2 || word2.ToUpper() == word1);
 
           return equalButCapitalized || equalButAllCaps;
