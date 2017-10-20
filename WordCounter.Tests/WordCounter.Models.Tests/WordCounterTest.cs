@@ -152,5 +152,32 @@ namespace WordCounter.Models.Tests
 
         Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
     }
+    [TestMethod]
+    public void CountMatches_TestHasInternalPunctuationAndInputDoesnt_NumMatches()
+    {
+        string testSentence = "The quick brown fox's jump went over the lazy dog.";
+        string inputWord = "foxs";
+        int numExpectedMatches = 0;
+
+        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+    }
+    [TestMethod]
+    public void CountMatches_TestHasInternalPunctuationAndInputPartiallyMatches_NumMatches()
+    {
+        string testSentence = "The quick brown fox's jump went over the lazy dog.";
+        string inputWord = "fox";
+        int numExpectedMatches = 0;
+
+        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+    }
+    [TestMethod]
+    public void CountMatches_TestHasInternalPunctuationAndInputMatches_NumMatches()
+    {
+        string testSentence = "The quick brown fox's jump went over the lazy dog.";
+        string inputWord = "fox's";
+        int numExpectedMatches = 1;
+
+        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+    }
   }
 }

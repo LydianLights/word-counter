@@ -16,8 +16,8 @@ namespace WordCounter.Models
           int count = 0;
           foreach (string word in testWords)
           {
-              string wordToTest = RemovePunctuation(word);
-              if (WordsAreSame(wordToTest, inputWord))
+              string parsedWord = RemoveSurroundingPunctuation(word);
+              if (WordsAreSame(parsedWord, inputWord))
               {
                   count++;
               }
@@ -38,18 +38,18 @@ namespace WordCounter.Models
           return equalButCapitalized || equalButAllCaps;
       }
 
-      private static string RemovePunctuation(string word)
+      private static string RemoveSurroundingPunctuation(string word)
       {
-          char[] characters = word.ToCharArray();
-          string output = "";
-          foreach (char c in characters)
+          List<char> characters = word.ToList();
+          while (characters.Count > 0 && !char.IsLetterOrDigit(characters[0]))
           {
-              if (char.IsLetterOrDigit(c))
-              {
-                  output += c;
-              }
+              characters.RemoveAt(0);
           }
-          return output;
+          while (characters.Count > 0 && !char.IsLetterOrDigit(characters[characters.Count - 1]))
+          {
+              characters.RemoveAt(characters.Count - 1);
+          }
+          return new String(characters.ToArray());
       }
   }
 }
