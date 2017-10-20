@@ -216,6 +216,16 @@ _This input-output pair checks that surrounding punctuation counts towards the d
 
 ---
 
+If the input word has starting or ending punctuation but the punctuation is different, it should not count a match.
+
+| Input Sentence | Input Word | Output |
+| :--- | :--- | :--- |
+| The quick brown ~fox~ jumps over the lazy dog. | -fox- | 1 |
+
+_This input-output pair checks that different punctuation are treated differently._
+
+---
+
 If the input word has starting or ending punctuation, it should still follow the previous capitalization rules.
 
 | Input Sentence | Input Word | Output |
