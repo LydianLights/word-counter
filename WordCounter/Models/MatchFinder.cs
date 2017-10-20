@@ -43,9 +43,13 @@ namespace WordCounter.Models
       private static string CapitalizeFirstNonPunctuationCharacter(string word)
       {
           int indexToCapitalize = 0;
-          while (!char.IsLetterOrDigit(word[indexToCapitalize]))
+          while (indexToCapitalize < word.Length - 1 && !char.IsLetterOrDigit(word[indexToCapitalize]))
           {
               indexToCapitalize++;
+          }
+          if (indexToCapitalize >= word.Length)
+          {
+              return word;
           }
           char[] characters = word.ToCharArray();
           characters[indexToCapitalize] = char.ToLower(characters[indexToCapitalize]);

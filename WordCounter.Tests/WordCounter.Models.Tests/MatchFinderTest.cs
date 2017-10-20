@@ -229,7 +229,7 @@ namespace WordCounter.Models.Tests
     {
         string testSentence = "The quick brown ---- jumps over the lazy dog.";
         string inputWord = "-";
-        int numExpectedMatches = 1;
+        int numExpectedMatches = 0;
 
         Assert.AreEqual(numExpectedMatches, MatchFinder.CountMatches(testSentence, inputWord));
     }
