@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace WordCounter.Models
 {
@@ -19,9 +20,14 @@ namespace WordCounter.Models
           return count;
       }
 
-      private static bool WordsAreSame(string testWord, string inputWord)
+      private static bool WordsAreSame(string word1, string word2)
       {
-          return testWord == inputWord;
+          char[] word1Arr = word1.ToCharArray();
+          word1Arr[0] = char.ToLower(word1Arr[0]);
+          char[] word2Arr = word2.ToCharArray();
+          word2Arr[0] = char.ToLower(word2Arr[0]);
+
+          return word1Arr.SequenceEqual(word2Arr);
       }
   }
 }

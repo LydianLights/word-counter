@@ -53,5 +53,14 @@ namespace WordCounter.Models.Tests
 
         Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
     }
+    [TestMethod]
+    public void CountMatches_InputIsInTestButCapitalized_NumMatches()
+    {
+        string testSentence = "The quick brown fox jumps over the lazy dog.";
+        string inputWord = "the";
+        int numExpectedMatches = 2;
+
+        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+    }
   }
 }
