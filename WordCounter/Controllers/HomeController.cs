@@ -15,7 +15,7 @@ namespace WordCounter.Controllers
         return View(model);
       }
 
-      [HttpPost("/"), ActionName("Index")]
+      [HttpPost("/results"), ActionName("Index")]
       public ActionResult Submit()
       {
         string inputSentence = Request.Form["input-sentence"];

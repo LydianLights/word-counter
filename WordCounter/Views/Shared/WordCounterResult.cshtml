@@ -1,0 +1,10 @@
+@using WordCounter.ViewModels.Home;
+@model IndexModel
+
+@{
+  bool countIsPlural = Model.MatchCount != 1;
+}
+
+<div class="well">
+  <h2>Your word appeared @Model.MatchCount @(countIsPlural ? "times" : "time").</h2>
+</div>

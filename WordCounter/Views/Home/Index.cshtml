@@ -1,3 +1,5 @@
+@using WordCounter.ViewModels.Home;
+@model IndexModel
 @{
   Layout = "_Layout";
 }
@@ -6,5 +8,13 @@
   <div class="jumbotron">
     <h1>Word Counter</h1>
   </div>
-  @Html.Partial("WordCounterForm")
+  <div id="word-counter-form">
+    @Html.Partial("WordCounterForm")
+  </div>
+  @if(Model.DisplayMatchResults)
+  {
+    <div id="word-counter-results">
+      @Html.Partial("WordCounterResult")
+    </div>
+  }
 </div>
