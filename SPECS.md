@@ -255,3 +255,13 @@ If the input word is only punctuation, it should only find exact matches.
 _This input-output pair checks for lack of an exact punctuation match._
 
 ---
+
+Two input words should not be allowed.
+
+| Input Sentence | Input Word | Output |
+| :--- | :--- | :--- |
+| The quick brown fox jumps over the lazy dog. | quick brown | error |
+
+_This input-output pair checks for a two-word input._
+
+---

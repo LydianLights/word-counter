@@ -233,5 +233,14 @@ namespace WordCounter.Models.Tests
 
         Assert.AreEqual(numExpectedMatches, MatchFinder.CountMatches(testSentence, inputWord));
     }
+    [TestMethod]
+    [ExpectedException(typeof(ArgumentException))]
+    public void CountMatches_InputIsMultipleWords_Exception()
+    {
+        string testSentence = "The quick brown fox jumps over the lazy dog.";
+        string inputWord = "brown fox";
+
+        MatchFinder.CountMatches(testSentence, inputWord);
+    }
   }
 }
