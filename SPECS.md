@@ -235,3 +235,23 @@ If the input word has starting or ending punctuation, it should still follow the
 _This input-output pair checks that surrounding punctuation doesn't break the capitalization checking._
 
 ---
+
+If the input word is only punctuation, it should treat it like a "word" and find exact matches.
+
+| Input Sentence | Input Word | Output |
+| :--- | :--- | :--- |
+| The quick brown ---- jumps over the lazy dog. | ---- | 1 |
+
+_This input-output pair checks for an exact punctuation match._
+
+---
+
+If the input word is only punctuation, it should only find exact matches.
+
+| Input Sentence | Input Word | Output |
+| :--- | :--- | :--- |
+| The quick brown ---- jumps over the lazy dog. | - | 0 |
+
+_This input-output pair checks for lack of an exact punctuation match._
+
+---
