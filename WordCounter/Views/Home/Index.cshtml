@@ -1,3 +1,20 @@
 @{
   Layout = "_Layout";
 }
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>Word Counter</h1>
+  </div>
+  <form action="/result" method="post">
+    <div class="form-group">
+      <label for="input-sentence">Enter a sentence:</label>
+      <input class="form-control" id="input-sentence" name="input-sentence" type="text">
+    </div>
+    <div class="form-group">
+      <label for="input-word">Enter a word to look for:</label>
+      <input class="form-control" id="input-word" name="input-word" type="text">
+    </div>
+    <button class="btn" type="submit" name="submit-button">Go!</button>
+  </form>
+</div>
