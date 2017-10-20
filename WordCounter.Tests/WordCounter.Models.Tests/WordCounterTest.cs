@@ -54,11 +54,56 @@ namespace WordCounter.Models.Tests
         Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
     }
     [TestMethod]
-    public void CountMatches_InputIsInTestButCapitalized_NumMatches()
+    public void CountMatches_InputIsInTestButTestIsCapitalized_NumMatches()
     {
         string testSentence = "The quick brown fox jumps over the lazy dog.";
         string inputWord = "the";
         int numExpectedMatches = 2;
+
+        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+    }
+    [TestMethod]
+    public void CountMatches_InputIsInTestButTestIsALLCAPS_NumMatches()
+    {
+        string testSentence = "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.";
+        string inputWord = "fox";
+        int numExpectedMatches = 1;
+
+        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+    }
+    [TestMethod]
+    public void CountMatches_InputIsInTestButTestIsDifferentCasing_NoMatches()
+    {
+        string testSentence = "The quick BrOwN fox jumps over the lazy dog.";
+        string inputWord = "brown";
+        int numExpectedMatches = 0;
+
+        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+    }
+    [TestMethod]
+    public void CountMatches_InputIsInTestButInputIsCapitalized_NumMatches()
+    {
+        string testSentence = "The quick brown fox jumps over the lazy dog.";
+        string inputWord = "The";
+        int numExpectedMatches = 2;
+
+        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+    }
+    [TestMethod]
+    public void CountMatches_InputIsInTestButInputIsALLCAPS_NumMatches()
+    {
+        string testSentence = "The quick brown fox jumps over the lazy dog.";
+        string inputWord = "FOX";
+        int numExpectedMatches = 1;
+
+        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+    }
+    [TestMethod]
+    public void CountMatches_InputIsInTestButInputIsDifferentCasing_NoMatches()
+    {
+        string testSentence = "The quick brown fox jumps over the lazy dog.";
+        string inputWord = "bRoWn";
+        int numExpectedMatches = 0;
 
         Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
     }

@@ -27,7 +27,10 @@ namespace WordCounter.Models
           char[] word2Arr = word2.ToCharArray();
           word2Arr[0] = char.ToLower(word2Arr[0]);
 
-          return word1Arr.SequenceEqual(word2Arr);
+          bool equalButCapitalized = word1Arr.SequenceEqual(word2Arr);
+          bool equalButAllCaps = (word1.ToUpper() == word2 || word2.ToUpper() == word1);
+
+          return equalButCapitalized || equalButAllCaps;
       }
   }
 }
