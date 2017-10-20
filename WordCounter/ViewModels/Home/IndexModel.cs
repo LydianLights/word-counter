@@ -1,20 +1,25 @@
+using WordCounter.Models;
+
 namespace WordCounter.ViewModels.Home
 {
     public class IndexModel
     {
-        public bool DisplayMatchResults{get; set;}
-        public int MatchCount {get; set;}
+        public string InputSentence {get; private set;} = "";
+        public string InputWord {get; private set;} = "";
+        public bool DisplayMatchResults {get; private set;} = false;
+        public int MatchCount {get; private set;} = 0;
 
         public IndexModel()
         {
-            DisplayMatchResults = false;
-            MatchCount = 0;
+
         }
 
-        public IndexModel(int matchCount)
+        public IndexModel(string inputSentence, string inputWord)
         {
+            InputSentence = inputSentence;
+            InputWord = inputWord;
             DisplayMatchResults = true;
-            MatchCount = matchCount;
+            MatchCount = MatchFinder.CountMatches(inputSentence, inputWord);
         }
     }
 }

@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using WordCounter.Models;
 using WordCounter.ViewModels.Home;
 
 namespace WordCounter.Controllers
@@ -20,9 +19,8 @@ namespace WordCounter.Controllers
       {
         string inputSentence = Request.Form["input-sentence"];
         string inputWord = Request.Form["input-word"];
-        int numMatches = MatchFinder.CountMatches(inputSentence, inputWord);
 
-        IndexModel model = new IndexModel(numMatches);
+        IndexModel model = new IndexModel(inputSentence, inputWord);
         return View(model);
       }
     }
