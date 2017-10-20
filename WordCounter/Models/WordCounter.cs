@@ -8,6 +8,10 @@ namespace WordCounter.Models
   {
       public static int CountMatches(string testSentence, string inputWord)
       {
+          if (inputWord == "")
+          {
+              return 0;
+          }
           string[] testWords = testSentence.Split(new char[] {' '}, StringSplitOptions.RemoveEmptyEntries);
           int count = 0;
           foreach (string word in testWords)

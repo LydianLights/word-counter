@@ -36,6 +36,33 @@ namespace WordCounter.Models.Tests
         Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
     }
     [TestMethod]
+    public void CountMatches_TestIsEmpty_NoMatches()
+    {
+        string testSentence = "";
+        string inputWord = "cat";
+        int numExpectedMatches = 0;
+
+        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+    }
+    [TestMethod]
+    public void CountMatches_InputIsEmpty_NoMatches()
+    {
+        string testSentence = "cat";
+        string inputWord = "";
+        int numExpectedMatches = 0;
+
+        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+    }
+    [TestMethod]
+    public void CountMatches_TestIsEmptyAndInputIsEmpty_NoMatches()
+    {
+        string testSentence = "";
+        string inputWord = "";
+        int numExpectedMatches = 0;
+
+        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+    }
+    [TestMethod]
     public void CountMatches_InputIsNotInTest_NoMatches()
     {
         string testSentence = "the quick brown fox jumps over the lazy dog";
