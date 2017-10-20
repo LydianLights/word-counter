@@ -7,7 +7,12 @@ namespace WordCounter.Models
   {
       public static int CountMatches(string testSentence, string word)
       {
-          return 0;
+          int count = 0;
+          if (testSentence == word)
+          {
+              count = 1;
+          }
+          return count;
       }
   }
 }

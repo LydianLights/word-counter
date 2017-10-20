@@ -9,13 +9,31 @@ namespace WordCounter.Models.Tests
   public class WordCounterTest
   {
     [TestMethod]
-    public void CountMatches_WordDoesntMatch_NoMatch()
+    public void CountMatches_TestIsSingleWordAndInputDoesntMatch_NoMatch()
     {
         string testSentence = "dog";
-        string testWord = "cat";
+        string inputWord = "cat";
         int numExpectedMatches = 0;
 
-        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, testWord));
+        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+    }
+    [TestMethod]
+    public void CountMatches_TestIsSingleWordAndInputDoesMatch_NumMatches()
+    {
+        string testSentence = "cat";
+        string inputWord = "cat";
+        int numExpectedMatches = 1;
+
+        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+    }
+    [TestMethod]
+    public void CountMatches_InputPartiallyContainedInTest_NumMatches()
+    {
+        string testSentence = "apple";
+        string inputWord = "a";
+        int numExpectedMatches = 0;
+
+        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
     }
   }
 }
