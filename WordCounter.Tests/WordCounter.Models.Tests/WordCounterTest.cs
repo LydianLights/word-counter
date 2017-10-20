@@ -9,7 +9,7 @@ namespace WordCounter.Models.Tests
   public class WordCounterTest
   {
     [TestMethod]
-    public void CountMatches_TestIsSingleWordAndInputDoesntMatch_NoMatch()
+    public void CountMatches_TestIsSingleWordAndInputDoesntMatch_NoMatches()
     {
         string testSentence = "dog";
         string inputWord = "cat";
@@ -32,6 +32,24 @@ namespace WordCounter.Models.Tests
         string testSentence = "apple";
         string inputWord = "a";
         int numExpectedMatches = 0;
+
+        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+    }
+    [TestMethod]
+    public void CountMatches_InputIsNotInTest_NoMatches()
+    {
+        string testSentence = "the quick brown fox jumps over the lazy dog";
+        string inputWord = "cat";
+        int numExpectedMatches = 0;
+
+        Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
+    }
+    [TestMethod]
+    public void CountMatches_InputIsInTest_NumMatches()
+    {
+        string testSentence = "buffalo buffalo buffalo buffalo buffalo buffalo buffalo bison";
+        string inputWord = "buffalo";
+        int numExpectedMatches = 7;
 
         Assert.AreEqual(numExpectedMatches, WordCounter.CountMatches(testSentence, inputWord));
     }

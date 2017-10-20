@@ -5,14 +5,23 @@ namespace WordCounter.Models
 {
   public static class WordCounter
   {
-      public static int CountMatches(string testSentence, string word)
+      public static int CountMatches(string testSentence, string inputWord)
       {
+          string[] testWords = testSentence.Split(new char[] {' '}, StringSplitOptions.RemoveEmptyEntries);
           int count = 0;
-          if (testSentence == word)
+          foreach (string word in testWords)
           {
-              count = 1;
+              if (WordsAreSame(word, inputWord))
+              {
+                  count++;
+              }
           }
           return count;
+      }
+
+      private static bool WordsAreSame(string testWord, string inputWord)
+      {
+          return testWord == inputWord;
       }
   }
 }
