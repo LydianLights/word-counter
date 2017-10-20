@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using _Rename.Models;
+using WordCounter.Models;
 
-namespace _Rename.Controllers
+namespace WordCounter.Controllers
 {
     public class HomeController : Controller
     {

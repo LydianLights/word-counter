@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace _Rename.Models
+namespace WordCounter.Models
 {
   public class _MyClass
   {

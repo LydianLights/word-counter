@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using _Rename.Models;
+using WordCounter.Models;
 
-namespace _Rename.Models.Tests
+namespace WordCounter.Models.Tests
 {
   [TestClass]
   public class _MyClassTest
