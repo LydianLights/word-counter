@@ -2,9 +2,15 @@
 @model IndexModel
 
 <div class="well">
-  <h3>Searching for...</h3>
-  <p>"@Model.InputWord"</p>
-  <h3>In text...</h3>
-  <p>"@Model.InputSentence"</p>
+  <div class="row">
+    <div class="col-md-4">
+      <h3>Searching for...</h3>
+      <p>"@Model.InputWord"</p>
+    </div>
+    <div class="col-md-8">
+      <h3>In text...</h3>
+      <p>"@Model.InputSentence"</p>
+    </div>
+  </div>
   <h2>Your word appeared @Model.MatchCount @((Model.MatchCount != 1) ? "times" : "time").</h2>
 </div>

@@ -1,0 +1,9 @@
+#word-counter-form {
+  margin-bottom: 40px;
+}
+
+#word-counter-form textarea {
+  min-width: 100px;
+  min-height: 100px;
+  max-width: 100%;
+}
