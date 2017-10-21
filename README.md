@@ -12,7 +12,7 @@ _This app allows the user to enter a word and a sentence, and it reports how man
 
 _To download and use the source code of this project:_
 
-* _Clone the project using the link: `https://github.com/LydianLights/address-book-csharp.git`_
+* _Clone the project using the link: `https://github.com/LydianLights/word-counter.git`_
 * _Make sure you have `.NET Core 1.1` installed. If you don't, download both the SDK and the Runtime [here](https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.4-download.md)_
 * _Once installed, navigate to the project root folder in either the terminal or powershell (depending on OS)._
 * _From the project root folder, run the commands `dotnet restore WordCounter` and `dotnet restore WordCounter.Tests` to fetch the project dependencies._
